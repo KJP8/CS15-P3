@@ -1,0 +1,35 @@
+body {
+  background-color: #C2ADFF;
+  font-family: sans-serif;
+  color: #5E41B2;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 50px;
+  margin: auto;
+}
+
+form {
+  width: 19em;
+  margin: 10px auto 0 auto;
+  color: #5E41B2;
+}
+
+h2 {
+  background-color: white;
+  display: inline-block;
+  padding: 15px;
+  border-style: solid;
+  border-color: #FFCEA6;
+}
+
+.error {
+  font-size: 150%;
+  color: red;
+}
+
+#info {
+  padding: 0 20em 0 20em;
+  margin-bottom: 10px;
+}
