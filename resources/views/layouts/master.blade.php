@@ -14,6 +14,7 @@
     {{-- Yield any page with specific CSS files or anything else you might want in the <head> --}}
     @yield('head')
 </head>
+    
 <body>
     @yield('nav')
     

@@ -1,0 +1,27 @@
+body {
+  background-color: #C2ADFF;
+  font-family: sans-serif;
+  color: #5E41B2;
+  padding-top: 70px;
+}
+
+h1 {
+   font-size: 50px;
+   font-weight: 500;
+}
+
+.links {
+    background-color: #FFFFFF;
+    margin: 0 20em 0 20em;
+    padding: 5px 0 10px 0;
+}
+
+/* link styling */
+a:link, a:visited, a:active {
+    color: #5E41B2;
+}
+a:hover {
+    color: #C2ADFF;
+    text-decoration: none;
+}
+
