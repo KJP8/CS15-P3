@@ -13,7 +13,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li><a href="http://p1.keeleypeck.me">Home</a></li>
+                <li><a href='/'>Home</a></li>
                 <li><a href='/lorem-ipsum'>Lorem Ipsum Generator</a></li>
                 <li><a href='/user-generator'>Random User Generator</a></li>
                 <li class="active"><a href='/password-generator'>XKCD Password Generator<span class="sr-only">(current)</span></a></li>
@@ -24,14 +24,22 @@
 
 @section('content')
     <h1 class="text-center">xkcd Password Generator</h1>
+@stop
+
+@section('body')
     
-    <!-- Reference PHP logic file to provide the user with the appropriate error message -->
-    <div class="text-center">
-        <p class="error"><?php echo $errormsg; ?></p>
-    </div>
+    {{-- Reference PHP logic file to provide the user with the appropriate error message --}}
+    @if(count($errors) > 0)
+        <div class="text-center">
+            @foreach ($errors->all() as $errormsg)
+            <p class="error">{{ $errormsg }}</p>
+            @endforeach
+        </div>
+    @endif
     
-    <!-- User input form -->
-    <form action="index.php">
+    {{-- User input form --}}
+    <form method='POST' action="/password-generator">
+        {{ csrf_field() }}
         <div class="form-group">
             <label for="numWord">Number of words</label>
             <input type="text" class="form-control" name="numWord" id="numWord" placeholder="Please enter a number between 2-10" maxlength="2" required>
@@ -61,9 +69,13 @@
         <button type="submit" class="btn btn-default">Generate Password</button>
     </form>
     
-    <!-- Refernece PHP logic file to provide the user with the generated password -->
+    {{-- Refernece PasswordGeneratorController file to provide the user with the generated password --}}
     <div class="text-center">
-        <h2><?php echo $password; ?></h2>
+        @if(isset($password))
+            <h2><?php echo $password; ?></h2>
+        @else
+            <h2>default-password-four-numbers</h2>
+        @endif
     </div>
     
     <div class="text-center" id="info">

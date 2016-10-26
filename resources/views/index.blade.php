@@ -9,7 +9,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="http://p1.keeleypeck.me">Home<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href='/'>Home<span class="sr-only">(current)</span></a></li>
                 <li><a href='/lorem-ipsum'>Lorem Ipsum Generator</a></li>
                 <li><a href='/user-generator'>Random User Generator</a></li>
                 <li><a href='/password-generator'>XKCD Password Generator</a></li>
@@ -21,6 +21,7 @@
 @section('content')
     <div class="container-fluid text-center">
         <h1>Developer's Best Friend</h1>
+        <p>jjubgujhgnjhkjhmjk</p>
         <div class="links">
             <a href='/lorem-ipsum' title="Click here to access the Lorem Ipsum Generator"><h2>Lorem Ipsum Generator</h2></a>
             <p>haskdfhnakshnfrjkshf</p>
