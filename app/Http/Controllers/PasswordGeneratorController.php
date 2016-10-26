@@ -2,19 +2,23 @@
 
 namespace P3\Http\Controllers;
 
+use P3\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+
 class PasswordGeneratorController extends Controller
 {
     /**
     * Responds to requests to GET /password-generator
     */
-    public function getIndex() {
+    public function index() {
         return view('password-generator.password-generator');
     }
     
     /**
     * Responds to requests to POST /password-generator
     */
-    public function postIndex(Request $request) {
+    public function store(Request $request) {
         $this->validate($request, [
             'numWords' => 'required|numeric|between:2,10'                           
         ]);

@@ -17,20 +17,15 @@ Route::group(['middleware' => ['web']], function () {
         return view('index');
     });
     // Gets main page for lorem ipsum
-    Route::get('/lorem-ipsum', 'LoremIpsumController@getIndex')->name('lorem-ipsum.index');
+    Route::get('/lorem-ipsum', 'LoremIpsumController@index');
     // Posts for submitting the lorem ipsum generator form
-    Route::post('/lorem-ipsum', 'LoremIpsumController@postIndex')->name('lorem-ipsum.store');
+    Route::post('/lorem-ipsum', 'LoremIpsumController@store');
     // Gets main page for random user generator
-    Route::get('/user-generator', 'UserGeneratorController@getIndex')->name('user-generator.index');
+    Route::get('/user-generator', 'UserGeneratorController@index');
     // Posts for submitting the random user generator form
-    Route::post('/user-generator', 'UserGeneratorController@postIndex')->name('user-generator.store');
+    Route::post('/user-generator', 'UserGeneratorController@store');
     // Gets main page for password generator
-    Route::get('/password-generator', 'PasswordGeneratorController@getIndex')->name('password-generator.index');
+    Route::get('/password-generator', 'PasswordGeneratorController@index');
     // Posts for submitting the password generator form
-    Route::post('/password-generator', 'PasswordGeneratorController@postIndex')->name('password-generator.store');
+    Route::post('/password-generator', 'PasswordGeneratorController@store');
 });
-
-if(App::environment() == 'local') {
-    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-}
-
