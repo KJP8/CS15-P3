@@ -2,12 +2,24 @@ body {
   background-color: #C2ADFF;
   font-family: sans-serif;
   color: #5E41B2;
-  padding-top: 70px;
+  padding-top: 80px;
 }
 
 h1 {
    font-size: 50px;
    font-weight: 500;
+   margin: auto;
+}
+
+form {
+  width: 19em;
+  margin: 10px auto 0 auto;
+  color: #5E41B2;
+}
+
+.error {
+  font-size: 150%;
+  color: red;
 }
 
 .links {

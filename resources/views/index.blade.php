@@ -12,7 +12,7 @@
                 <li class="active"><a href='/'>Home<span class="sr-only">(current)</span></a></li>
                 <li><a href='/lorem-ipsum'>Lorem Ipsum Generator</a></li>
                 <li><a href='/user-generator'>Random User Generator</a></li>
-                <li><a href='/password-generator'>XKCD Password Generator</a></li>
+                <li><a href='/password-generator'>xkcd Password Generator</a></li>
             </ul>
         </div>
     </nav>

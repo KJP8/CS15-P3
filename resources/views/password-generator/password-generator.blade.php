@@ -16,7 +16,7 @@
                 <li><a href='/'>Home</a></li>
                 <li><a href='/lorem-ipsum'>Lorem Ipsum Generator</a></li>
                 <li><a href='/user-generator'>Random User Generator</a></li>
-                <li class="active"><a href='/password-generator'>XKCD Password Generator<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href='/password-generator'>xkcd Password Generator<span class="sr-only">(current)</span></a></li>
             </ul>
         </div>
     </nav>
@@ -28,9 +28,9 @@
 
 @section('body')
     
-    {{-- Reference PHP logic file to provide the user with the appropriate error message --}}
+    {{-- Provide user with appropriate error message --}}
     @if(count($errors) > 0)
-        <div class="text-center">
+        <div class="text-center error">
             @foreach ($errors->all() as $errormsg)
             <p class="error">{{ $errormsg }}</p>
             @endforeach
@@ -46,30 +46,28 @@
         </div>
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="symbol"> Include a symbol
+                <input type="checkbox" name="symbol">Include a symbol
             </label>
         </div>
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="number"> Include a number
+                <input type="checkbox" name="number">Include a number
             </label>
         </div>
         <div class="radio">
             <label>
-                <input type="radio" name="case" id="lowCase" value="low" checked>
-                Lowercase
+                <input type="radio" name="case" id="lowCase" value="low" checked>Lowercase
             </label>
         </div>
         <div class="radio">
             <label>
-                <input type="radio" name="case" id="upCase" value="up">
-                Uppercase
+                <input type="radio" name="case" id="upCase" value="up">Uppercase
             </label>
         </div>
         <button type="submit" class="btn btn-default">Generate Password</button>
     </form>
     
-    {{-- Refernece PasswordGeneratorController file to provide the user with the generated password --}}
+    {{-- Provide user with appropriate password based on user input --}}
     <div class="text-center">
         @if(isset($password))
             <h2><?php echo $password; ?></h2>
