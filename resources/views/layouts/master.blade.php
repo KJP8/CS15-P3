@@ -16,7 +16,17 @@
 </head>
     
 <body>
-    @yield('nav')
+    {{-- Bootstrap CSS/JS sticky nav bar--}}
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href='/'>Home</a></li>
+                <li><a href='/lorem-ipsum'>Lorem Ipsum Generator</a></li>
+                <li><a href='/user-generator'>Random User Generator</a></li>
+                <li><a href='/password-generator'>xkcd Password Generator</a></li>
+            </ul>
+        </div>
+    </nav>
     
     <section class="container center-block">
         {{-- Main page content will be yielded here --}}
