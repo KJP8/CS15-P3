@@ -20,11 +20,11 @@ class PasswordGeneratorController extends Controller
     */
     public function store(Request $request) {
         $this->validate($request, [
-            'numWords' => 'required|numeric|between:2,10'                           
+            'numberOfWords' => 'required|numeric|between:2,10'                           
         ]);
 
         # Initialize variables
-        $numWords = $request->input('numWords', '4');
+        $numWords = $request->input('numberOfWords', '4');
         $number = $request->input('number');
         $symbol = $request->input('symbol');
         $case = $request->input('case');
@@ -33,7 +33,7 @@ class PasswordGeneratorController extends Controller
         
         # Scrape html page for words between list elements.
         $source = file_get_contents('http://www.paulnoll.com/Books/Clear-English/words-01-02-hundred.html');
-        $doc = new DOMDocument();
+        $doc = new \DOMDocument();
         @$doc->loadHTML($source);
         
         foreach ($doc->getElementsByTagName('li') as $li) {
@@ -41,7 +41,7 @@ class PasswordGeneratorController extends Controller
         }
         
         # Choose random words from the $words array based on the number provided by the user.
-        $randArray = array_rand($words, $input);
+        $randArray = array_rand($words, $numWords);
         $valueArray = array();
         
         foreach ($randArray as $value) {

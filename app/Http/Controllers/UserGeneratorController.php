@@ -19,11 +19,11 @@ class UserGeneratorController extends Controller
      */
     public function store(Request $request) {
         $this->validate($request, [
-            'users' => 'required|numeric|between:1,20'
+            'numberOfUsers' => 'required|numeric|between:1,20'
         ]);
-        $users = $request->input('users', '0');
+        $users = $request->input('numberOfUsers', '0');
         $birthdate = $request->input('birthdate');
         $phoneNumber = $request->input('phoneNumber');
-        return view('user-generator.user-generator', ['users' => $users, 'birthdate' => $birthdate, 'phoneNumber' => $phoneNumber]);
+        return view('user-generator.user-generator', ['numberOfUsers' => $users, 'birthdate' => $birthdate, 'phoneNumber' => $phoneNumber]);
     }
 }

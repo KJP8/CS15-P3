@@ -5,7 +5,7 @@
 @stop
 
 @section('head')
-	<link rel="stylesheet" href="css/p2.css">
+	<link rel="stylesheet" href="css/password-generator.css">
 @stop
 
 @section('nav')
@@ -31,8 +31,8 @@
     {{-- Provide user with appropriate error message --}}
     @if(count($errors) > 0)
         <div class="text-center error">
-            @foreach ($errors->all() as $errormsg)
-            <p class="error">{{ $errormsg }}</p>
+            @foreach ($errors->all() as $error)
+            <p class="error">{{ $error }}</p>
             @endforeach
         </div>
     @endif
@@ -41,8 +41,8 @@
     <form method='POST' action="/password-generator">
         {{ csrf_field() }}
         <div class="form-group">
-            <label for="numWord">Number of words</label>
-            <input type="text" class="form-control" name="numWord" id="numWord" placeholder="Please enter a number between 2-10" maxlength="2" required>
+            <label for="numberOfWords">Number of words</label>
+            <input type="text" class="form-control" name="numberOfWords" id="numberOfWords" placeholder="Please enter a number between 2-10" maxlength="2" required>
         </div>
         <div class="checkbox">
             <label>
@@ -68,13 +68,15 @@
     </form>
     
     {{-- Provide user with appropriate password based on user input --}}
-    <div class="text-center">
         @if(isset($password))
-            <h2><?php echo $password; ?></h2>
+            <div class="text-center">
+                <h2><?php echo $password; ?></h2>
+            </div>
         @else
-            <h2>default-password-four-numbers</h2>
+            <div class="text-center">
+                <h2>default-password-four-numbers</h2>
+            </div>
         @endif
-    </div>
     
     <div class="text-center" id="info">
         <p>This is an xkcd-style password generator. Please enter a number of words (between 2 and 10). Then, select whether or not you want to append a symbol and/or number to the generated password, and whether or not you'd like to make the password all lowercase (default) or all uppercase. By selecting "Generate Password," a random password containing however many words you asked for and any of the other options you may have chosen will be displayed to you.</p>

@@ -4,6 +4,10 @@
     Random User Generator
 @stop
 
+@section('head')
+	<link rel="stylesheet" href="css/user-generator.css">
+@stop
+
 @section('nav')
     {{-- Bootstrap CSS/JS sticky nav bar--}}
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -27,8 +31,8 @@
     {{-- Provide user with appropriate error message --}}
     @if(count($errors) > 0)
         <div class="text-center error">
-            @foreach ($errors->all() as $errormsg)
-            <p class="error">{{ $errormsg }}</p>
+            @foreach ($errors->all() as $error)
+            <p class="error">{{ $error }}</p>
             @endforeach
         </div>
     @endif
@@ -37,8 +41,8 @@
     <form method='POST' action="/user-generator">
         {{ csrf_field() }}
         <div class="form-group">
-            <label for="users">Number of users</label>
-            <input type="text" class="form-control" name="users" id="users" placeholder="Please enter a number between 1-20" maxlength="2" required>
+            <label for="numberOfUsers">Number of numberOfUsers</label>
+            <input type="text" class="form-control" name="numberOfUsers" id="numberOfUsers" placeholder="Please enter a number between 1-20" maxlength="2" required>
         </div>
         <div class="checkbox">
             <label>
@@ -54,23 +58,23 @@
     </form>
      
     {{-- Provide user with appropriate random user info based on user input --}}   
-    @if(isset($users))
+    @if(isset($numberOfUsers))
         <?php $faker = Faker\Factory::create(); ?>
-        @for ($i = 0; $i < $users; $i++)
-            <div class="text-center userInfo">
+        @for ($i = 0; $i < $numberOfUsers; $i++)
+            <div class="userInfo">
                 <p>
-                    <?php echo $faker->name; ?>
+                    <strong>Name: </strong> <?php echo $faker->name; ?>
                 </p>
                 
                 @if(isset($birthdate))
                     <p>
-                        <?php echo $faker->dateTimeThisCentury->format('Y-m-d') ?>
+                        <strong>Birthdate: </strong> <?php echo $faker->dateTimeThisCentury->format('Y-m-d') ?>
                     </p>
                 @endif
                 
                 @if(isset($phoneNumber))
                     <p>
-                        <?php echo $faker->phoneNumber ?>
+                        <strong>Phone Number: </strong> <?php echo $faker->phoneNumber ?>
                     </p>
                 @endif
             </div>

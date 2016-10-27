@@ -19,9 +19,9 @@ class LoremIpsumController extends Controller
      */
     public function store(Request $request) {
         $this->validate($request, [
-            'paragraphs' => 'required|numeric|between:1,20'
+            'numberOfParagraphs' => 'required|numeric|between:1,20'
         ]);
-        $paragraphs = $request->input('paragraphs', '0');
-        return view('lorem-ipsum.lorem-ipsum')->with('paragraphs',$paragraphs);
+        $numberOfParagraphs = $request->input('numberOfParagraphs', '0');
+        return view('lorem-ipsum.lorem-ipsum')->with('numberOfParagraphs', $numberOfParagraphs);
     }
 }
