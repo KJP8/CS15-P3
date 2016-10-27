@@ -41,7 +41,7 @@
     <form method='POST' action="/user-generator">
         {{ csrf_field() }}
         <div class="form-group">
-            <label for="numberOfUsers">Number of numberOfUsers</label>
+            <label for="numberOfUsers">Number of users</label>
             <input type="text" class="form-control" name="numberOfUsers" id="numberOfUsers" placeholder="Please enter a number between 1-20" maxlength="2" required>
         </div>
         <div class="checkbox">
@@ -54,7 +54,7 @@
                 <input type="checkbox" name="phoneNumber">Include a phone number
             </label>
         </div>
-        <button type="submit" class="btn btn-default">Generate User</button>
+        <button type="submit" class="btn btn-default">Generate Users</button>
     </form>
      
     {{-- Provide user with appropriate random user info based on user input --}}   
