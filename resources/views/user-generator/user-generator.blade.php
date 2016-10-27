@@ -54,7 +54,7 @@
                 
                 @if(isset($birthdate))
                     <p>
-                        <strong>Birthdate: </strong> <?php echo $faker->dateTimeThisCentury->format('Y-m-d') ?>
+                        <strong>Birthdate: </strong> <?php echo $faker->dateTimeThisCentury->format('m-d-Y') ?>
                     </p>
                 @endif
                 
